@@ -1,405 +1,584 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ariadny & Vinicius — 22.08.2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
     --blue-marian: #7aafc8;
     --blue-light: #a8cfe0;
-    --blue-pale: #ddeef6;
+    --blue-pale: #eef7fb;
     --blue-deep: #4a8fad;
     --blue-dark: #2c6882;
     --gold: #c9a84c;
     --gold-light: #e0c97a;
-    --white: #fdfcfa;
+    --white: #ffffff;
     --cream: #f8f4ef;
-    --text-dark: #2a2a2a;
-    --text-mid: #5a5a5a;
+    --text-dark: #2b2b2b;
+    --text-mid: #626262;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-
   body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: var(--white);
     color: var(--text-dark);
     overflow-x: hidden;
+    line-height: 1.65;
   }
 
-  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar { width: 7px; }
   ::-webkit-scrollbar-track { background: var(--blue-pale); }
-  ::-webkit-scrollbar-thumb { background: var(--blue-marian); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: var(--blue-marian); border-radius: 999px; }
 
-  /* ══ HERO ══ */
-  #hero {
-    position: relative;
-    height: 100vh;
-    min-height: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(44,104,130,0.55) 0%,
-        rgba(122,175,200,0.40) 40%,
-        rgba(44,104,130,0.65) 100%
-      ),
-      url('https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=1800&q=80') center/cover no-repeat;
-    transform: scale(1.04);
-    animation: bgBreath 16s ease-in-out infinite alternate;
-  }
-
-  @keyframes bgBreath {
-    from { transform: scale(1.04); }
-    to   { transform: scale(1.08); }
-  }
-
-  .particles {
-    position: absolute; inset: 0;
-    pointer-events: none; overflow: hidden;
-  }
-
-  .particle {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.18);
-    animation: float linear infinite;
-  }
-
-  @keyframes float {
-    0%   { transform: translateY(110vh); opacity: 0; }
-    10%  { opacity: 1; }
-    90%  { opacity: 1; }
-    100% { transform: translateY(-10vh); opacity: 0; }
-  }
-
-  .hero-content {
-    position: relative; z-index: 2;
-    display: flex; flex-direction: column; align-items: center;
-    animation: heroReveal 1.6s cubic-bezier(.22,1,.36,1) both;
-  }
-
-  @keyframes heroReveal {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .monogram {
-    width: 114px; height: 114px;
-    margin-bottom: 26px;
-    filter: drop-shadow(0 4px 24px rgba(0,0,0,0.25));
-    animation: monogramReveal 0.9s cubic-bezier(.34,1.56,.64,1) both;
-    animation-delay: 0.2s;
-  }
-
-  @keyframes monogramReveal {
-    from { opacity: 0; transform: scale(0.7); }
-    to   { opacity: 1; transform: scale(1); }
-  }
-
-  .hero-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 0.68rem; letter-spacing: 0.45em;
-    color: rgba(255,255,255,0.88); text-transform: uppercase;
-    margin-bottom: 16px;
-    opacity: 0; animation: fadeUp 0.8s ease both; animation-delay: 0.5s;
-  }
-
-  .hero-names {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.8rem, 9vw, 7.2rem);
-    font-weight: 300; font-style: italic;
-    color: var(--white); line-height: 1.08; letter-spacing: 0.02em;
-    text-shadow: 0 2px 40px rgba(44,104,130,0.5);
-    opacity: 0; animation: fadeUp 1s ease both; animation-delay: 0.7s;
-  }
-
-  .hero-names .ampersand { color: rgba(255,255,255,0.9); font-size: 1.05em; }
-
-  .hero-divider {
-    display: flex; align-items: center; gap: 16px;
-    margin: 22px 0;
-    opacity: 0; animation: fadeUp 0.8s ease both; animation-delay: 1s;
-  }
-
-  .hero-divider-line {
-    width: 80px; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-  }
-
-  .hero-divider-icon { color: rgba(255,255,255,0.8); font-size: 1rem; }
-
-  .hero-date {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1rem, 2.5vw, 1.3rem); letter-spacing: 0.3em;
-    color: rgba(255,255,255,0.92);
-    opacity: 0; animation: fadeUp 0.8s ease both; animation-delay: 1.15s;
-  }
-
-  .hero-scroll {
-    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
-    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
-    opacity: 0; animation: fadeUp 0.8s ease both; animation-delay: 1.8s;
-    cursor: pointer;
-  }
-
-  .hero-scroll span {
-    font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.4em;
-    color: rgba(255,255,255,0.65); text-transform: uppercase;
-  }
-
-  .scroll-arrow {
-    width: 18px; height: 18px;
-    border-right: 1.5px solid rgba(255,255,255,0.55);
-    border-bottom: 1.5px solid rgba(255,255,255,0.55);
-    transform: rotate(45deg);
-    animation: arrowBounce 1.6s ease-in-out infinite;
-  }
-
-  @keyframes arrowBounce {
-    0%,100% { transform: rotate(45deg) translate(0,0); }
-    50%      { transform: rotate(45deg) translate(4px,4px); }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ══ NAV ══ */
+  /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 18px 40px;
-    display: flex; justify-content: center; gap: 40px;
-    transition: background 0.4s ease, padding 0.4s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 34px;
+    padding: 18px 24px;
+    transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
   }
 
   nav.scrolled {
     background: rgba(44,104,130,0.96);
     backdrop-filter: blur(12px);
-    padding: 14px 40px;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 18px rgba(0,0,0,0.14);
+    padding: 14px 24px;
   }
 
   nav a {
-    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.4em;
-    color: rgba(255,255,255,0.85); text-decoration: none; text-transform: uppercase;
-    transition: color 0.25s; position: relative;
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,0.88);
+    position: relative;
   }
 
   nav a::after {
-    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-    height: 1px; background: var(--gold-light);
-    transform: scaleX(0); transition: transform 0.3s ease; transform-origin: center;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 1px;
+    background: var(--gold-light);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
   }
 
   nav a:hover { color: var(--gold-light); }
   nav a:hover::after { transform: scaleX(1); }
 
-  /* ══ COUNTDOWN compacto ══ */
+  /* HERO */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 120px 20px 90px;
+    background:
+      radial-gradient(circle at top, rgba(168,207,224,0.40), transparent 42%),
+      linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(238,247,251,0.92) 100%);
+  }
+
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(44,104,130,0.14), rgba(44,104,130,0.18)),
+      radial-gradient(circle at 50% 20%, rgba(122,175,200,0.12), transparent 36%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 980px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    animation: fadeUp 1s ease both;
+  }
+
+  .hero-logo {
+    width: min(210px, 46vw);
+    height: auto;
+    filter: drop-shadow(0 12px 28px rgba(44,104,130,0.18));
+    margin-bottom: 10px;
+  }
+
+  .hero-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.42em;
+    color: var(--blue-deep);
+    text-transform: uppercase;
+  }
+
+  .hero-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 8vw, 6.6rem);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--blue-dark);
+    line-height: 0.96;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-names .ampersand {
+    display: inline-block;
+    font-size: 0.95em;
+    color: var(--blue-marian);
+    transform: translateY(-4px);
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 8px 0 2px;
+  }
+
+  .hero-divider-line {
+    width: 82px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(74,143,173,0.60), transparent);
+  }
+
+  .hero-divider-icon {
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  .hero-date {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    letter-spacing: 0.34em;
+    color: var(--blue-dark);
+    text-transform: uppercase;
+  }
+
+  .hero-subtitle {
+    max-width: 680px;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-mid);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    z-index: 2;
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.7s;
+  }
+
+  .hero-scroll span,
+  .countdown-label,
+  .section-tag,
+  .local-type,
+  .regra-sub,
+  .verse-ref,
+  .footer-date {
+    font-family: 'Cinzel', serif;
+  }
+
+  .hero-scroll span {
+    font-size: 0.58rem;
+    letter-spacing: 0.38em;
+    color: rgba(44,104,130,0.72);
+    text-transform: uppercase;
+  }
+
+  .scroll-arrow {
+    width: 16px;
+    height: 16px;
+    border-right: 1.5px solid rgba(44,104,130,0.70);
+    border-bottom: 1.5px solid rgba(44,104,130,0.70);
+    transform: rotate(45deg);
+    animation: arrowBounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes arrowBounce {
+    0%,100% { transform: rotate(45deg) translate(0,0); }
+    50% { transform: rotate(45deg) translate(4px,4px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* COUNTDOWN */
   #countdown-bar {
     background: var(--blue-pale);
-    padding: 20px 24px; text-align: center;
-    border-top: 1px solid rgba(122,175,200,0.25);
-    border-bottom: 1px solid rgba(122,175,200,0.25);
+    padding: 20px 18px;
+    text-align: center;
+    border-top: 1px solid rgba(122,175,200,0.22);
+    border-bottom: 1px solid rgba(122,175,200,0.22);
   }
 
   .countdown-label {
-    font-family: 'Cinzel', serif; font-size: 0.57rem; letter-spacing: 0.45em;
-    color: var(--blue-marian); text-transform: uppercase; margin-bottom: 11px;
+    font-size: 0.58rem;
+    letter-spacing: 0.42em;
+    color: var(--blue-deep);
+    text-transform: uppercase;
+    margin-bottom: 11px;
   }
 
   .countdown-wrap {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: white; border: 1px solid rgba(122,175,200,0.3);
-    border-radius: 4px; padding: 9px 22px;
-    box-shadow: 0 2px 12px rgba(44,104,130,0.07);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.95);
+    border: 1px solid rgba(122,175,200,0.28);
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 6px 18px rgba(44,104,130,0.06);
   }
 
   .countdown-unit {
-    display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 42px;
+    min-width: 46px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
   }
 
   .countdown-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.55rem; font-weight: 400; color: var(--blue-dark); line-height: 1;
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--blue-dark);
+    line-height: 1;
   }
 
   .countdown-name {
-    font-family: 'Cinzel', serif; font-size: 0.48rem; letter-spacing: 0.22em;
-    color: var(--blue-marian); text-transform: uppercase;
+    font-size: 0.48rem;
+    letter-spacing: 0.22em;
+    color: var(--blue-marian);
+    text-transform: uppercase;
   }
 
   .countdown-sep {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; color: var(--blue-dark); line-height: 1;
-    padding-bottom: 8px; margin: 0 1px;
+    font-size: 1.25rem;
+    color: var(--blue-dark);
+    line-height: 1;
+    padding-bottom: 8px;
   }
 
-  /* ══ SECTION BASE ══ */
+  /* GENERAL SECTIONS */
   section { padding: 86px 24px; }
-  .section-inner { max-width: 860px; margin: 0 auto; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
 
   .section-tag {
-    font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.5em;
-    color: var(--blue-marian); text-transform: uppercase;
-    text-align: center; margin-bottom: 14px;
+    font-size: 0.62rem;
+    letter-spacing: 0.5em;
+    color: var(--blue-marian);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 14px;
   }
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 400;
-    color: var(--blue-dark); text-align: center; line-height: 1.25; margin-bottom: 16px;
+    font-size: clamp(2rem, 4.8vw, 2.9rem);
+    font-weight: 500;
+    color: var(--blue-dark);
+    text-align: center;
+    line-height: 1.18;
+    margin-bottom: 14px;
   }
 
-  .section-title em { font-style: italic; color: var(--blue-marian); }
+  .section-title em {
+    font-style: italic;
+    color: var(--blue-marian);
+  }
 
   .ornament {
-    display: flex; align-items: center; justify-content: center; gap: 14px;
-    margin: 0 auto 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 0 auto 44px;
   }
 
-  .ornament-line { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
-  .ornament-line.right { background: linear-gradient(90deg, var(--gold), transparent); }
-  .ornament-diamond { width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); }
-
-  #presentes .section-tag {
-    font-size: 1.4rem; letter-spacing: 0.25em;
+  .ornament-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
   }
 
-  #presentes .section-title {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
-    color: var(--blue-dark);
+  .ornament-line.right {
+    background: linear-gradient(90deg, var(--gold), transparent);
   }
-  #presentes .section-title em { color: var(--blue-dark); font-style: italic; }
 
-  /* ══ PRESENTES ══ */
+  .ornament-diamond {
+    width: 7px;
+    height: 7px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* PRESENTES */
   #presentes {
-    background: var(--cream); position: relative; overflow: hidden;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #presentes::before,
+  #presentes::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
   }
 
   #presentes::before {
-    content: ''; position: absolute; top: -60px; left: -60px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(122,175,200,0.18) 0%, transparent 70%);
-    border-radius: 50%;
+    top: -60px;
+    left: -60px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(122,175,200,0.16) 0%, transparent 70%);
   }
 
   #presentes::after {
-    content: ''; position: absolute; bottom: -60px; right: -60px;
-    width: 400px; height: 400px;
+    right: -60px;
+    bottom: -60px;
+    width: 380px;
+    height: 380px;
     background: radial-gradient(circle, rgba(122,175,200,0.12) 0%, transparent 70%);
-    border-radius: 50%;
   }
 
   .gift-card {
-    position: relative; z-index: 1;
-    background: var(--white);
-    border: 1px solid rgba(122,175,200,0.3);
-    border-radius: 4px; padding: 52px 48px; text-align: center;
-    box-shadow: 0 8px 48px rgba(44,104,130,0.09);
-    max-width: 580px; margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 48px 42px;
+    background: rgba(255,255,255,0.97);
+    border: 1px solid rgba(122,175,200,0.30);
+    border-radius: 18px;
+    box-shadow: 0 14px 42px rgba(44,104,130,0.08);
+    text-align: center;
   }
 
-  .gift-icon { font-size: 2.6rem; margin-bottom: 20px; display: block; }
+  .gift-icon { font-size: 2.4rem; display: block; margin-bottom: 18px; }
 
   .gift-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.18rem; font-weight: 300; color: var(--text-mid);
-    line-height: 2; margin-bottom: 36px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    line-height: 1.95;
+    margin-bottom: 32px;
   }
 
-  /* Botão chamativo dourado */
   .btn-gift {
-    display: inline-flex; align-items: center; gap: 12px;
-    background: linear-gradient(135deg, #b8922a 0%, #e0c257 45%, #c9a84c 100%);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 34px;
+    border-radius: 999px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
     color: #2a1800;
-    font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 600;
-    letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none;
-    padding: 18px 44px; border-radius: 3px;
-    transition: all 0.35s ease;
-    box-shadow: 0 6px 28px rgba(180,140,50,0.5), 0 2px 8px rgba(0,0,0,0.12);
-    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #b8922a 0%, #e0c257 45%, #c9a84c 100%);
+    box-shadow: 0 8px 24px rgba(180,140,50,0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
-  .btn-gift::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, #c9a84c 0%, #f0d87a 50%, #b8922a 100%);
-    opacity: 0; transition: opacity 0.35s;
-  }
-
-  .btn-gift:hover::after { opacity: 1; }
   .btn-gift:hover {
-    box-shadow: 0 10px 42px rgba(180,140,50,0.65), 0 4px 12px rgba(0,0,0,0.14);
     transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(180,140,50,0.34);
   }
 
-  .btn-gift span { position: relative; z-index: 1; }
-  .btn-emoji { font-size: 1.05rem; position: relative; z-index: 1; }
+  /* REGRAS */
+  #regras {
+    background: var(--blue-dark);
+    position: relative;
+    overflow: hidden;
+  }
 
-  /* ══ LOCAL ══ */
+  #regras::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 15% 50%, rgba(122,175,200,0.16) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 85% 50%, rgba(201,168,76,0.10) 0%, transparent 70%);
+  }
+
+  #regras .section-tag { color: var(--gold-light); }
+  #regras .section-title { color: var(--white); }
+  #regras .section-title em { color: var(--blue-light); }
+
+  .regras-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+  }
+
+  .regra-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 30px 24px;
+    backdrop-filter: blur(10px);
+  }
+
+  .regra-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  .regra-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .regra-text {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.80);
+    line-height: 1.8;
+  }
+
+  .regra-sub {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+
+  .palette {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .palette-chip {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.24);
+  }
+
+  /* LOCAL */
   #local { background: var(--white); }
 
   .local-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
-  }
-
-  @media (max-width: 640px) {
-    .local-grid { grid-template-columns: 1fr; }
-    .gift-card { padding: 36px 24px; }
-    nav { gap: 18px; padding: 14px 20px; }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
   }
 
   .local-card {
-    border: 1px solid rgba(122,175,200,0.35);
-    border-radius: 4px; padding: 40px 32px;
-    position: relative; overflow: hidden;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border: 1px solid rgba(122,175,200,0.30);
+    border-radius: 16px;
+    padding: 34px 30px;
+    box-shadow: 0 10px 34px rgba(44,104,130,0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
   }
 
   .local-card:hover {
-    box-shadow: 0 12px 48px rgba(44,104,130,0.12);
-    transform: translateY(-4px);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 44px rgba(44,104,130,0.10);
   }
 
   .local-card::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 4px; height: 100%;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
     background: linear-gradient(180deg, var(--blue-marian), var(--gold));
   }
 
   .local-type {
-    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.45em;
-    color: var(--blue-marian); text-transform: uppercase; margin-bottom: 12px;
+    font-size: 0.6rem;
+    letter-spacing: 0.42em;
+    color: var(--blue-marian);
+    text-transform: uppercase;
+    margin-bottom: 12px;
   }
 
   .local-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.45rem; font-weight: 500; color: var(--blue-dark);
-    line-height: 1.25; margin-bottom: 16px;
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--blue-dark);
+    line-height: 1.22;
+    margin-bottom: 16px;
   }
 
   .local-detail {
-    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;
-    font-size: 0.875rem; color: var(--text-mid); font-weight: 300; line-height: 1.65;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 0.94rem;
+    color: var(--text-mid);
   }
 
-  .local-detail-icon { color: var(--blue-marian); flex-shrink: 0; margin-top: 2px; font-size: 0.9rem; }
+  .local-detail-icon { color: var(--blue-marian); flex-shrink: 0; }
 
   .local-separator {
     height: 1px;
@@ -407,118 +586,49 @@
     margin: 18px 0;
   }
 
-  /* Badge pontualidade */
   .pontualidade-badge {
-    display: flex; align-items: flex-start; gap: 8px;
-    background: linear-gradient(135deg, rgba(44,104,130,0.08), rgba(122,175,200,0.13));
-    border: 1px solid rgba(44,104,130,0.25);
+    display: flex;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(44,104,130,0.08), rgba(122,175,200,0.12));
+    border: 1px solid rgba(44,104,130,0.18);
     border-left: 3px solid var(--blue-dark);
-    border-radius: 3px; padding: 11px 14px; margin-top: 14px;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-top: 14px;
   }
 
-  .pontualidade-badge .badge-icon { flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
-
-  .pontualidade-badge .badge-text {
-    font-size: 0.825rem; color: var(--blue-dark); line-height: 1.6; font-weight: 400;
+  .badge-text {
+    font-size: 0.86rem;
+    color: var(--blue-dark);
+    line-height: 1.6;
   }
 
-  /* Botão maps */
   .maps-btn {
-    display: inline-flex; align-items: center; gap: 7px;
-    margin-top: 18px; background: var(--blue-dark); color: white;
-    font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.2em;
-    text-transform: uppercase; text-decoration: none;
-    padding: 11px 20px; border-radius: 3px;
-    transition: background 0.3s, transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 18px;
+    background: var(--blue-dark);
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    padding: 11px 18px;
+    border-radius: 999px;
+    transition: background 0.25s ease, transform 0.25s ease;
   }
 
-  .maps-btn:hover { background: var(--blue-marian); transform: translateY(-1px); }
-
-  /* ══ REGRAS ══ */
-  #regras {
-    background: var(--blue-dark); position: relative; overflow: hidden;
+  .maps-btn:hover {
+    background: var(--blue-marian);
+    transform: translateY(-1px);
   }
 
-  #regras::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 80% at 15% 50%, rgba(122,175,200,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 60% at 85% 50%, rgba(201,168,76,0.10) 0%, transparent 70%);
-  }
-
-  #regras .section-tag { color: var(--gold-light); font-size: 1.3rem; letter-spacing: 0.25em; }
-  #regras .section-title { color: var(--white); }
-  #regras .section-title em { color: var(--blue-light); }
-
-  .regras-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 22px; position: relative; z-index: 1;
-  }
-
-  .regra-card {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 4px; padding: 34px 26px; text-align: center;
-    backdrop-filter: blur(8px); transition: background 0.3s ease;
-  }
-
-  .regra-card:hover { background: rgba(255,255,255,0.11); }
-
-  .regra-icon { font-size: 2rem; display: block; margin-bottom: 16px; }
-
-  .regra-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem; font-weight: 500; color: var(--white); margin-bottom: 14px;
-  }
-
-  .regra-text {
-    font-size: 0.875rem; color: rgba(255,255,255,0.75);
-    line-height: 1.85; font-weight: 300; text-align: left;
-  }
-
-  .regra-sub {
-    font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.2em;
-    color: var(--gold-light); text-transform: uppercase;
-    margin-top: 12px; margin-bottom: 4px; display: block;
-  }
-
-  .palette {
-    display: flex; gap: 7px; justify-content: center; flex-wrap: wrap; margin-top: 16px;
-  }
-
-  .palette-chip {
-    width: 27px; height: 27px; border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.22); transition: transform 0.2s;
-  }
-
-  .palette-chip:hover { transform: scale(1.2); }
-
-  /* ══ VERSO BÍBLICO ══ */
-  .bible-verse {
-    position: relative; z-index: 1; text-align: center;
-    margin-top: 52px; padding-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-  }
-
-  .verse-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.2rem, 3vw, 1.6rem);
-    font-style: italic; font-weight: 300;
-    color: rgba(255,255,255,0.88); line-height: 1.9;
-    max-width: 480px; margin: 0 auto 14px;
-    text-transform: uppercase; letter-spacing: 0.06em;
-  }
-
-  .verse-ref {
-    font-family: 'Cinzel', serif; font-size: 0.65rem;
-    letter-spacing: 0.4em; color: var(--gold-light);
-  }
-
-  /* ══ VERSO BÍBLICO ══ */
+  /* VERSE */
   #verse-bar {
     background: var(--blue-dark);
-    padding: 60px 24px;
+    padding: 58px 24px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -526,108 +636,149 @@
 
   #verse-bar::before {
     content: '';
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0;
     background: radial-gradient(ellipse 70% 100% at 50% 50%, rgba(122,175,200,0.15) 0%, transparent 70%);
   }
 
   .verse-inner { position: relative; z-index: 1; }
 
   .verse-ornament {
-    display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 26px;
   }
 
-  .v-line { width: 60px; height: 1px; background: rgba(255,255,255,0.2); }
-  .v-cross { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+  .v-line { width: 60px; height: 1px; background: rgba(255,255,255,0.18); }
+  .v-cross { color: rgba(255,255,255,0.45); font-size: 0.8rem; }
 
   .verse-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.2rem, 3vw, 1.65rem);
-    font-weight: 300;
-    color: rgba(255,255,255,0.92); line-height: 1.9;
-    max-width: 520px; margin: 0 auto 16px;
-    letter-spacing: 0.04em;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.85;
+    max-width: 540px;
+    margin: 0 auto 14px;
   }
 
   .verse-ref {
-    font-family: 'Cinzel', serif; font-size: 0.68rem;
-    letter-spacing: 0.45em; color: rgba(255,255,255,0.55);
+    font-size: 0.67rem;
+    letter-spacing: 0.42em;
+    color: rgba(255,255,255,0.60);
+    text-transform: uppercase;
   }
 
-  /* ══ FOTO DO CASAL ══ */
+  /* CASAL */
   #foto-casal {
     background: var(--cream);
     padding: 70px 24px;
   }
 
   .casal-photo-wrap {
-    max-width: 780px;
+    max-width: 820px;
     margin: 24px auto 0;
   }
 
   .casal-photo-placeholder {
     aspect-ratio: 3 / 2;
-    background: linear-gradient(135deg, rgba(122,175,200,0.12), rgba(44,104,130,0.08));
-    border: 2px dashed rgba(122,175,200,0.45);
-    border-radius: 4px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, rgba(122,175,200,0.10), rgba(44,104,130,0.06));
+    border: 2px dashed rgba(122,175,200,0.42);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
+    text-align: center;
+    padding: 24px;
   }
 
   .casal-photo-img {
     width: 100%;
     aspect-ratio: 3 / 2;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 16px;
     display: block;
-    box-shadow: 0 12px 48px rgba(44,104,130,0.18);
+    box-shadow: 0 12px 44px rgba(44,104,130,0.14);
   }
 
-  .casal-photo-icon { font-size: 2.5rem; opacity: 0.5; }
-
+  .casal-photo-icon { font-size: 2.4rem; opacity: 0.55; }
   .casal-photo-hint {
-    font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.3em;
-    color: var(--blue-marian); text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--blue-marian);
+    text-transform: uppercase;
   }
 
   .casal-photo-sub {
-    font-size: 0.82rem; color: var(--text-mid); line-height: 1.7; text-align: center;
+    font-size: 0.84rem;
+    color: var(--text-mid);
+    line-height: 1.7;
   }
 
-  /* ══ FOOTER ══ */
+  /* FOOTER */
   footer {
-    background: #1e4d63; padding: 44px 24px 28px; text-align: center;
+    background: #1e4d63;
+    padding: 40px 24px 28px;
+    text-align: center;
   }
 
-  .footer-monogram { width: 52px; height: 52px; margin: 0 auto 18px; opacity: 0.78; }
+  .footer-logo {
+    width: 56px;
+    height: auto;
+    margin: 0 auto 16px;
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.16));
+  }
 
   .footer-names {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.45rem;
-    font-style: italic; color: rgba(255,255,255,0.88); margin-bottom: 7px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.90);
+    margin-bottom: 6px;
   }
 
   .footer-date {
-    font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.4em;
-    color: var(--gold-light); margin-bottom: 24px;
+    font-size: 0.62rem;
+    letter-spacing: 0.4em;
+    color: var(--gold-light);
+    margin-bottom: 22px;
+    text-transform: uppercase;
   }
 
   .footer-line {
-    height: 1px; background: rgba(255,255,255,0.1);
-    margin: 0 auto 18px; max-width: 160px;
+    height: 1px;
+    background: rgba(255,255,255,0.10);
+    margin: 0 auto 18px;
+    max-width: 160px;
   }
 
-  .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.32); letter-spacing: 0.05em; }
+  .footer-copy { font-size: 0.74rem; color: rgba(255,255,255,0.38); }
 
-  /* reveal */
-  .reveal {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .local-grid { grid-template-columns: 1fr; }
+    nav { gap: 18px; padding-inline: 14px; }
+    .hero-divider-line { width: 56px; }
   }
-  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 560px) {
+    nav a { font-size: 0.56rem; letter-spacing: 0.22em; }
+    .hero-names { font-size: clamp(3rem, 15vw, 4.6rem); }
+    .gift-card, .local-card { padding: 28px 20px; }
+    section { padding-inline: 16px; }
+    .countdown-wrap { padding: 10px 14px; gap: 4px; }
+    .countdown-unit { min-width: 38px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="navbar">
   <a href="#hero">Início</a>
   <a href="#presentes">Presentes</a>
@@ -635,37 +786,11 @@
   <a href="#local">Local</a>
 </nav>
 
-
-<!-- ══ HERO ══ -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="particles" id="particles"></div>
-
+  <div class="hero-bg-overlay"></div>
   <div class="hero-content">
-
-    <!-- Monograma com Cinzel (menos caricata) -->
-    <svg class="monogram" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="57" cy="57" r="54" stroke="rgba(255,255,255,0.45)" stroke-width="1"/>
-      <circle cx="57" cy="57" r="48" stroke="rgba(201,168,76,0.55)" stroke-width="0.8"/>
-      <circle cx="57" cy="57" r="43" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" stroke-dasharray="2.5 5"/>
-      <!-- A em Cinzel -->
-      <text x="9" y="77"
-        font-family="Cinzel, serif" font-size="52" font-weight="500"
-        fill="rgba(255,255,255,0.93)">A</text>
-      <!-- &amp; separador elegante -->
-      <text x="47" y="62"
-        font-family="Cormorant Garamond, serif" font-size="20" font-style="italic"
-        fill="rgba(224,201,122,0.9)">&amp;</text>
-      <!-- V em Cinzel -->
-      <text x="60" y="88"
-        font-family="Cinzel, serif" font-size="52" font-weight="500"
-        fill="rgba(255,255,255,0.93)">V</text>
-      <!-- ornamentos de canto -->
-      <circle cx="14" cy="14" r="1.3" fill="rgba(201,168,76,0.65)"/>
-      <circle cx="100" cy="14" r="1.3" fill="rgba(201,168,76,0.65)"/>
-      <circle cx="14" cy="100" r="1.3" fill="rgba(201,168,76,0.65)"/>
-      <circle cx="100" cy="100" r="1.3" fill="rgba(201,168,76,0.65)"/>
-    </svg>
+    <!-- Coloque o arquivo da logo no seu repositório e ajuste o nome aqui -->
+    <img src="assets/logo-do-casal.jpeg" alt="Logo do casal Ariadny e Vinicius" class="hero-logo">
 
     <p class="hero-tag">Convidam para celebrar</p>
 
@@ -682,6 +807,7 @@
     </div>
 
     <p class="hero-date">22 · 08 · 2026</p>
+    <p class="hero-subtitle">Uma celebração em branco e azul claro, com a delicadeza e a paz que marcarão esse dia tão especial.</p>
   </div>
 
   <div class="hero-scroll" onclick="document.getElementById('countdown-bar').scrollIntoView({behavior:'smooth'})">
@@ -690,8 +816,6 @@
   </div>
 </section>
 
-
-<!-- ══ COUNTDOWN compacto ══ -->
 <div id="countdown-bar">
   <p class="countdown-label">Contagem regressiva para o grande dia</p>
   <div class="countdown-wrap">
@@ -717,8 +841,6 @@
   </div>
 </div>
 
-
-<!-- ══ PRESENTES ══ -->
 <section id="presentes">
   <div class="section-inner">
     <p class="section-tag reveal">Lista de Presentes</p>
@@ -731,81 +853,60 @@
 
     <div class="gift-card reveal">
       <span class="gift-icon">🎁</span>
-      <p class="gift-text">
-        Caso deseje nos presentear, preparamos uma lista de<br>
-        presentes para nos ajudar a construir nosso lar.
-      </p>
-      <a href="https://tinyurl.com/Vini-e-Ari-Presentes-Casamento" class="btn-gift" target="_blank">
-        <span class="btn-emoji">🎁</span>
+      <p class="gift-text">Caso deseje nos presentear, preparamos uma lista de presentes para nos ajudar a construir nosso lar.</p>
+      <a href="https://tinyurl.com/Vini-e-Ari-Presentes-Casamento" class="btn-gift" target="_blank" rel="noopener">
         <span>Lista de Presentes</span>
-        <span class="btn-emoji">🎁</span>
       </a>
     </div>
   </div>
 </section>
 
-
-<!-- ══ ORIENTAÇÕES ══ -->
 <section id="regras">
   <div class="section-inner">
     <p class="section-tag reveal">Orientações</p>
     <h2 class="section-title reveal">Para Celebrarmos <em>Juntos</em></h2>
     <div class="ornament reveal">
       <div class="ornament-line" style="background:linear-gradient(90deg,transparent,#c9a84c)"></div>
-      <div class="ornament-diamond" style="background:#c9a84c"></div>
-      <div class="ornament-line" style="background:linear-gradient(90deg,#c9a84c,transparent)"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right" style="background:linear-gradient(90deg,#c9a84c,transparent)"></div>
     </div>
 
     <div class="regras-grid">
-
-      <!-- Harmonia (primeiro) -->
       <div class="regra-card reveal">
         <span class="regra-icon">🕊️</span>
         <h3 class="regra-title">Harmonia na Festa</h3>
-        <p class="regra-text">
-          Este é um dia de amor, alegria e celebração.<br><br>
-          Por respeito a todos os presentes, pedimos gentilmente que conversas sobre <strong style="color:rgba(255,255,255,0.92)">política</strong> sejam deixadas de lado. Que a única pauta da noite seja a felicidade dos noivos!
-        </p>
+        <p class="regra-text">Este é um dia de amor, alegria e celebração. Por respeito a todos os presentes, pedimos gentilmente que conversas sobre <strong>política</strong> sejam deixadas de lado. Que a única pauta da noite seja a felicidade dos noivos!</p>
       </div>
 
-      <!-- Traje (segundo) -->
       <div class="regra-card reveal">
         <span class="regra-icon">👔</span>
         <h3 class="regra-title">Traje</h3>
         <p class="regra-text">
           <span class="regra-sub">Homens</span>
           Esporte Fino — calça social, camisa social, blazer opcional. Gravata não recomendada.
-          <span class="regra-sub" style="margin-top:14px;">Mulheres</span>
-          Esporte Fino. Por favor, evitem as cores <strong style="color:rgba(255,255,255,0.92)">branca</strong> e <strong style="color:rgba(255,255,255,0.92)">tons azuis</strong>, reservadas aos noivos.
+          <span class="regra-sub">Mulheres</span>
+          Esporte Fino. Por favor, evitem as cores <strong>branca</strong> e <strong>tons azuis</strong>, reservadas aos noivos.
         </p>
         <div class="palette">
-          <div class="palette-chip" style="background:#a8745c;" title="Terracota"></div>
-          <div class="palette-chip" style="background:#8fa87a;" title="Verde Sálvia"></div>
-          <div class="palette-chip" style="background:#c4a4c8;" title="Lavanda"></div>
-          <div class="palette-chip" style="background:#e8c884;" title="Amarelo Suave"></div>
-          <div class="palette-chip" style="background:#d4898c;" title="Rosa Antigo"></div>
-          <div class="palette-chip" style="background:#c0876e;" title="Salmão"></div>
-          <div class="palette-chip" style="background:#8fad9c;" title="Verde Menta"></div>
+          <div class="palette-chip" style="background:#a8745c;"></div>
+          <div class="palette-chip" style="background:#8fa87a;"></div>
+          <div class="palette-chip" style="background:#c4a4c8;"></div>
+          <div class="palette-chip" style="background:#e8c884;"></div>
+          <div class="palette-chip" style="background:#d4898c;"></div>
+          <div class="palette-chip" style="background:#c0876e;"></div>
+          <div class="palette-chip" style="background:#8fad9c;"></div>
         </div>
       </div>
 
-      <!-- Cerimônia obrigatória (terceiro) -->
       <div class="regra-card reveal">
         <span class="regra-icon">⛪</span>
         <h3 class="regra-title">Cerimônia Obrigatória</h3>
-        <p class="regra-text">
-          A participação na recepção está <strong style="color:rgba(255,255,255,0.92)">condicionada à presença na cerimônia religiosa</strong>.<br><br>
-          A celebração iniciará <strong style="color:rgba(255,255,255,0.92)">pontualmente às 15h45</strong> — sem atrasos. Pedimos que todos estejam presentes antes desse horário.
-        </p>
+        <p class="regra-text">A participação na recepção está <strong>condicionada à presença na cerimônia religiosa</strong>. A celebração iniciará <strong>pontualmente às 15h45</strong> — sem atrasos. Pedimos que todos estejam presentes antes desse horário.</p>
       </div>
-
     </div>
-
   </div>
 </section>
 
-
-<!-- ══ LOCAL ══ -->
 <section id="local">
   <div class="section-inner">
     <h2 class="section-title reveal">Cerimônia <em>&amp;</em> Recepção</h2>
@@ -816,74 +917,38 @@
     </div>
 
     <div class="local-grid">
-
-      <!-- Cerimônia -->
       <div class="local-card reveal">
         <p class="local-type">✦ Cerimônia</p>
         <h3 class="local-name">Paróquia Nossa Senhora das Graças da Medalha Milagrosa</h3>
         <div class="local-separator"></div>
 
-        <div class="local-detail">
-          <span class="local-detail-icon">📅</span>
-          <span>Sábado, 22 de agosto de 2026</span>
-        </div>
-        <div class="local-detail">
-          <span class="local-detail-icon">🕓</span>
-          <span><strong>15h45</strong></span>
-        </div>
-        <div class="local-detail">
-          <span class="local-detail-icon">📍</span>
-          <span>SGAN EQ 707/907 — Asa Norte<br>Brasília – DF, 70790-080</span>
-        </div>
+        <div class="local-detail"><span class="local-detail-icon">📅</span><span>Sábado, 22 de agosto de 2026</span></div>
+        <div class="local-detail"><span class="local-detail-icon">🕓</span><span><strong>15h45</strong></span></div>
+        <div class="local-detail"><span class="local-detail-icon">📍</span><span>SGAN EQ 707/907 — Asa Norte<br>Brasília – DF, 70790-080</span></div>
 
         <div class="pontualidade-badge">
-          <span class="badge-icon">⏱</span>
           <span class="badge-text">A cerimônia iniciará <strong>pontualmente às 15h45</strong>, sem atrasos. Pedimos que cheguem com antecedência.</span>
         </div>
 
-        <a class="maps-btn"
-           href="https://www.google.com/maps/search/?api=1&query=-15.7657588,-47.8953524"
-           target="_blank" rel="noopener">
-          📍 Como chegar
-        </a>
+        <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=-15.7657588,-47.8953524" target="_blank" rel="noopener">📍 Como chegar</a>
       </div>
 
-      <!-- Recepção -->
       <div class="local-card reveal">
         <p class="local-type">✦ Recepção</p>
         <h3 class="local-name">Clube do Exército — Setor de Clubes Sul</h3>
         <div class="local-separator"></div>
 
-        <div class="local-detail">
-          <span class="local-detail-icon">📅</span>
-          <span>Sábado, 22 de agosto de 2026</span>
-        </div>
-        <div class="local-detail">
-          <span class="local-detail-icon">🕖</span>
-          <span>Logo após a cerimônia</span>
-        </div>
-        <div class="local-detail">
-          <span class="local-detail-icon">📍</span>
-          <span>SCES Trecho 2, Conjunto 23 — Asa Sul<br>Brasília – DF, 70200-002</span>
-        </div>
-        <div class="local-detail">
-          <span class="local-detail-icon">🚗</span>
-          <span>Estacionamento próprio disponível</span>
-        </div>
+        <div class="local-detail"><span class="local-detail-icon">📅</span><span>Sábado, 22 de agosto de 2026</span></div>
+        <div class="local-detail"><span class="local-detail-icon">🕖</span><span>Logo após a cerimônia</span></div>
+        <div class="local-detail"><span class="local-detail-icon">📍</span><span>SCES Trecho 2, Conjunto 23 — Asa Sul<br>Brasília – DF, 70200-002</span></div>
+        <div class="local-detail"><span class="local-detail-icon">🚗</span><span>Estacionamento próprio disponível</span></div>
 
-        <a class="maps-btn"
-           href="https://www.google.com/maps/search/?api=1&query=-15.8190437,-47.8620304"
-           target="_blank" rel="noopener">
-          📍 Como chegar
-        </a>
+        <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=-15.8190437,-47.8620304" target="_blank" rel="noopener">📍 Como chegar</a>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ══ VERSO BÍBLICO ══ -->
 <div id="verse-bar">
   <div class="verse-inner reveal">
     <div class="verse-ornament">
@@ -892,104 +957,99 @@
       <div class="v-line"></div>
     </div>
     <p class="verse-text">"Nós amamos porque Ele nos amou primeiro."</p>
-    <p class="verse-ref">1 João 4 : 19</p>
+    <p class="verse-ref">1 João 4:19</p>
   </div>
 </div>
 
-
-<!-- ══ FOTO DO CASAL ══ -->
 <section id="foto-casal">
   <div class="section-inner">
-    <p class="section-tag reveal" style="color:var(--blue-marian);">O Casal</p>
+    <p class="section-tag reveal">O Casal</p>
+    <h2 class="section-title reveal">Foto do casal</h2>
+    <div class="ornament reveal">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right"></div>
+    </div>
+
     <div class="casal-photo-wrap reveal">
-      <!-- Substitua o src abaixo pela foto do casal -->
-      <!-- Proporção ideal: 3:2 (ex: 1200×800 px) em boa resolução -->
+      <!-- Substitua pelo arquivo real quando subir para o GitHub Pages -->
+      <!-- Exemplo: <img src="assets/foto-casal.jpg" alt="Ariadny e Vinicius" class="casal-photo-img"> -->
       <div class="casal-photo-placeholder">
         <span class="casal-photo-icon">📷</span>
         <p class="casal-photo-hint">Foto do Casal</p>
-        <p class="casal-photo-sub">Substitua este espaço pela sua foto<br>Proporção ideal: <strong>3:2</strong> — resolução recomendada: <strong>1200 × 800 px</strong></p>
+        <p class="casal-photo-sub">Use aqui a foto do casal em boa resolução.<br>Proporção ideal: <strong>3:2</strong>.</p>
       </div>
-      <!-- Quando tiver a foto, troque o div acima por:
-      <img src="SUA-FOTO.jpg" alt="Ariadny e Vinicius" class="casal-photo-img"> -->
     </div>
   </div>
 </section>
 
-
-<!-- FOOTER -->
 <footer>
-  <svg class="footer-monogram" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="57" cy="57" r="54" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-    <circle cx="57" cy="57" r="48" stroke="rgba(201,168,76,0.28)" stroke-width="0.8"/>
-    <text x="9" y="77" font-family="Cinzel, serif" font-size="52" font-weight="500"
-          fill="rgba(255,255,255,0.55)">A</text>
-    <text x="47" y="62" font-family="Cormorant Garamond, serif" font-size="20" font-style="italic"
-          fill="rgba(224,201,122,0.55)">&amp;</text>
-    <text x="60" y="88" font-family="Cinzel, serif" font-size="52" font-weight="500"
-          fill="rgba(255,255,255,0.55)">V</text>
-  </svg>
-
+  <img src="assets/logo-do-casal.jpeg" alt="Logo do casal" class="footer-logo">
   <p class="footer-names">Ariadny &amp; Vinicius</p>
   <p class="footer-date">22 · 08 · 2026</p>
   <div class="footer-line"></div>
   <p class="footer-copy">Com amor, os noivos 🤍</p>
 </footer>
 
-
 <script>
-  /* ── Partículas ── */
-  const container = document.getElementById('particles');
-  for (let i = 0; i < 20; i++) {
+  // Partículas leves no topo do hero
+  const hero = document.getElementById('hero');
+  for (let i = 0; i < 14; i++) {
     const p = document.createElement('div');
-    p.className = 'particle';
-    const size = Math.random() * 5 + 3;
-    p.style.cssText = `
-      width:${size}px;height:${size}px;
-      left:${Math.random()*100}%;
-      animation-duration:${Math.random()*18+12}s;
-      animation-delay:${Math.random()*-22}s;
-      opacity:${Math.random()*0.45+0.08};
-    `;
-    container.appendChild(p);
+    p.style.position = 'absolute';
+    p.style.borderRadius = '50%';
+    p.style.background = 'rgba(122,175,200,0.16)';
+    p.style.width = p.style.height = `${Math.random() * 5 + 3}px`;
+    p.style.left = `${Math.random() * 100}%`;
+    p.style.top = `${Math.random() * 100}%`;
+    p.style.filter = 'blur(0.2px)';
+    p.style.opacity = `${Math.random() * 0.45 + 0.08}`;
+    p.style.pointerEvents = 'none';
+    hero.appendChild(p);
   }
 
-  /* ── Nav scroll ── */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  /* ── Countdown ── */
   function updateCountdown() {
     const wedding = new Date('2026-08-22T15:45:00');
     const now = new Date();
     let diff = wedding - now;
+
     if (diff <= 0) {
-      ['cd-dias','cd-horas','cd-min','cd-seg'].forEach(id => {
-        document.getElementById(id).textContent = id === 'cd-dias' ? '🎉' : '';
-      });
+      document.getElementById('cd-dias').textContent = '🎉';
+      document.getElementById('cd-horas').textContent = '00';
+      document.getElementById('cd-min').textContent = '00';
+      document.getElementById('cd-seg').textContent = '00';
       return;
     }
-    const dias  = Math.floor(diff / 86400000); diff -= dias * 86400000;
-    const horas = Math.floor(diff / 3600000);  diff -= horas * 3600000;
-    const min   = Math.floor(diff / 60000);    diff -= min * 60000;
-    const seg   = Math.floor(diff / 1000);
 
-    document.getElementById('cd-dias').textContent  = String(dias).padStart(3,'0');
-    document.getElementById('cd-horas').textContent = String(horas).padStart(2,'0');
-    document.getElementById('cd-min').textContent   = String(min).padStart(2,'0');
-    document.getElementById('cd-seg').textContent   = String(seg).padStart(2,'0');
+    const dias = Math.floor(diff / 86400000); diff -= dias * 86400000;
+    const horas = Math.floor(diff / 3600000); diff -= horas * 3600000;
+    const min = Math.floor(diff / 60000); diff -= min * 60000;
+    const seg = Math.floor(diff / 1000);
+
+    document.getElementById('cd-dias').textContent = String(dias).padStart(3, '0');
+    document.getElementById('cd-horas').textContent = String(horas).padStart(2, '0');
+    document.getElementById('cd-min').textContent = String(min).padStart(2, '0');
+    document.getElementById('cd-seg').textContent = String(seg).padStart(2, '0');
   }
+
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  /* ── Reveal on scroll ── */
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
   }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
