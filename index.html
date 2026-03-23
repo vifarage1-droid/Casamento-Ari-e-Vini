@@ -238,47 +238,47 @@
   /* outros estilos existentes... */
 
   /* Foto extra – ocupa toda a largura no mobile */
- /* Todas as fotos no celular: ocupam toda a largura */
+/* Todas as fotos no celular: ocupam toda a largura */
 @media (max-width: 640px) {
   /* Remove as margens laterais das três seções */
   #foto-topo,
   #foto-extra,
   #foto-casal {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   /* Faz o conteúdo interno ocupar 100% da largura */
   #foto-topo .si,
   #foto-extra .si,
   #foto-casal .si {
-    max-width: 100%;
-    padding: 0;
+    max-width: 100% !important;
+    padding: 0 !important;
   }
 
   /* O container da foto também ocupa 100% */
   #foto-topo .casal-photo-container,
   #foto-extra .casal-photo-container,
   #foto-casal .casal-photo-container {
-    max-width: 100%;
+    max-width: 100% !important;
   }
 
   /* Remove as bordas arredondadas nas três seções */
   #foto-topo .photo-wrapper,
   #foto-extra .photo-wrapper,
   #foto-casal .photo-wrapper {
-    border-radius: 0;
+    border-radius: 0 !important;
   }
 
   /* Proporção específica para cada seção */
   #foto-topo .photo-wrapper {
-    aspect-ratio: 3 / 2;    /* mantém 3:2 – pode alterar para 4/3 se quiser */
+    aspect-ratio: 3 / 2 !important;
   }
   #foto-extra .photo-wrapper {
-    aspect-ratio: 9 / 16;   /* estilo vertical */
+    aspect-ratio: 9 / 16 !important;
   }
   #foto-casal .photo-wrapper {
-    aspect-ratio: 3 / 2;    /* mantém 3:2 – pode alterar para 4/3 se quiser */
+    aspect-ratio: 3 / 2 !important;
   }
 }
 </style>
