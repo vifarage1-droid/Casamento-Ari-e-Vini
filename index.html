@@ -234,6 +234,12 @@
   .ft-date{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.42em;color:rgba(255,255,255,.45);margin-bottom:22px;}
   .ft-line{height:1px;background:rgba(255,255,255,.1);margin:0 auto 18px;max-width:140px;}
   .ft-copy{font-size:.72rem;color:rgba(255,255,255,.28);letter-spacing:.05em;}
+  /* Foto extra – ocupa toda a largura no mobile com proporção 4:3 */
+@media (max-width: 640px) {#foto-extra {padding-left: 0;padding-right: 0;}
+  #foto-extra .si {max-width: 100%;
+    padding: 0;}
+  #foto-extra .casal-photo-container {max-width: 100%;}
+  #foto-extra .photo-wrapper {border-radius: 0;/* remove as bordas arredondadas */aspect-ratio: 4 / 3;/* proporção 4:3 no celular */}}
 </style>
 </head>
 <body>
@@ -354,7 +360,7 @@
   <!-- ══ FOTO EXTRA (após orientações) ══ -->
 <section id="foto-extra" style="background:var(--cream);padding:50px 24px;">
   <div class="si">
-    <p class="s-tag reveal" style="color:var(--marian-deep);">O Casal</p>
+    <p class="s-tag reveal" style="color:var(--marian-deep);"></p>
     <div class="casal-photo-container reveal">
       <div class="photo-wrapper">
         <div class="photo-placeholder">
@@ -416,7 +422,7 @@
 <!-- FOTO DO CASAL (segunda seção, também ajustada) -->
 <section id="foto-casal">
   <div class="si">
-    <p class="s-tag reveal" style="color:var(--marian-deep);">O Casal</p>
+    <p class="s-tag reveal" style="color:var(--marian-deep);"></p>
     <div class="casal-photo-container reveal">
       <div class="photo-wrapper">
         <div class="photo-placeholder">
