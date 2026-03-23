@@ -235,11 +235,26 @@
   .ft-line{height:1px;background:rgba(255,255,255,.1);margin:0 auto 18px;max-width:140px;}
   .ft-copy{font-size:.72rem;color:rgba(255,255,255,.28);letter-spacing:.05em;}
   /* Foto extra – ocupa toda a largura no mobile com proporção 4:3 */
-@media (max-width: 640px) {#foto-extra {padding-left: 0;padding-right: 0;}
-  #foto-extra .si {max-width: 100%;
-    padding: 0;}
-  #foto-extra .casal-photo-container {max-width: 100%;}
-  #foto-extra .photo-wrapper {border-radius: 0;/* remove as bordas arredondadas */aspect-ratio: 4 / 3;/* proporção 4:3 no celular */}}
+  /* outros estilos existentes... */
+
+  /* Foto extra – ocupa toda a largura no mobile */
+  @media (max-width: 640px) {
+    #foto-extra {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    #foto-extra .si {
+      max-width: 100% !important;
+      padding: 0 !important;
+    }
+    #foto-extra .casal-photo-container {
+      max-width: 100% !important;
+    }
+    #foto-extra .photo-wrapper {
+      border-radius: 0 !important;
+      aspect-ratio: 4 / 3 !important;
+    }
+  }
 </style>
 </head>
 <body>
