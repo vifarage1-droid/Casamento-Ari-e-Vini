@@ -536,7 +536,7 @@
   window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',scrollY>60));
   // Countdown
   function tick(){
-    const w=new Date('2026-08-22T15:45:00'),n=new Date();
+    const w=new Date('2026-08-22T15:30:00'),n=new Date();
     let d=w-n;
     if(d<=0){['cd-dias','cd-horas','cd-min','cd-seg'].forEach(id=>document.getElementById(id).textContent=id==='cd-dias'?'🎉':'');return;}
     const di=Math.floor(d/86400000);d-=di*86400000;
